@@ -1,5 +1,6 @@
 import {
   type Opt,
+  DateTimeType,
   Entity,
   PrimaryKey,
   Property,
@@ -17,7 +18,12 @@ class Test {
   @PrimaryKey({ type: "number" })
   id!: number;
 
-  @Property({ type: "timestamp", length: 0, fieldName: "utc_only_please" })
+  @Property({
+    columnType: "timestamp",
+    type: DateTimeType,
+    length: 0,
+    fieldName: "utc_only_please",
+  })
   utcOnlyPlease!: Opt<Date>;
 }
 
